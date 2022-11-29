@@ -4,21 +4,15 @@
  * @return {number[]}
  */
 var twoSum = function(nums, target) {
-    let p=0;
-    let q=1;
-    while(p<nums.length && q<nums.length){
-        if(nums[p]+nums[q]===target){
-           return [p, q]
-       }
-        
-        if(q===nums.length-1){
-            p++;
-            q=p+1
+    let map = {};
+    for(let i=0; i<nums.length; i++){
+        let value = nums[i]
+        let pair = target - value;
+        if(map[pair]!==undefined){
+            return [map[pair], i]
         }else{
-              q++
+            map[value]=i
         }
-        
-      
         
     }
 };
